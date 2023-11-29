@@ -26,7 +26,7 @@ Cunado hemos comprobado que podemos entrar, sino se ha creado en la carpeta de c
 
 ```bash  
 [options]
-addons_path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons,/var/lib/odoo/.local/share/Odoo/addons/16.0
+addons_path = /mnt/extra-addons
 ```
 
 Para poder crear modulos en odoo tenemos que acceder al contenedor para ejecutar comandos
