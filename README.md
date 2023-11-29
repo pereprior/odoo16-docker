@@ -56,7 +56,6 @@ Ver las imagenes de docker instaladas
 docker images
 ```
 
-
 Borrar imagen 
 ```bash
 docker rmi [nombre]
@@ -77,8 +76,7 @@ Run contenedor
 docker start [nombre]
 ```
 
-
-Stop contenedor 
+Parar contenedor 
 ```bash
 docker stop [nombre]
 ```
@@ -87,4 +85,14 @@ docker stop [nombre]
 Restart contenedor 
 ```bash
 docker restart [nombre]
+```
+
+Parar todos contenedor 
+```bash
+docker stop $(docker ps -a -q)
+```
+
+Borrar todos contenedor 
+```bash
+docker stop $(docker ps -a -q)
 ```
