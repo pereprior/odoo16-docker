@@ -68,23 +68,23 @@ docker container ls
 
 Borrar contenedor 
 ```bash
-docker rm [nombre]
+docker rm [id]
 ```
 
 Run contenedor 
 ```bash
-docker start [nombre]
+docker start [id]
 ```
 
 Parar contenedor 
 ```bash
-docker stop [nombre]
+docker stop [id]
 ```
 
 
 Restart contenedor 
 ```bash
-docker restart [nombre]
+docker restart [id]
 ```
 
 Parar todos contenedor 
