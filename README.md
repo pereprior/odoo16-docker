@@ -58,7 +58,7 @@ docker images
 
 Borrar imagen 
 ```bash
-docker rmi [nombre]
+docker rmi [id]
 ```
 
 Ver todos los contenedores 
