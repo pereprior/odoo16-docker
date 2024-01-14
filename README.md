@@ -96,3 +96,4 @@ Borrar todos contenedor
 ```bash
 docker stop $(docker ps -a -q)
 ```
+
