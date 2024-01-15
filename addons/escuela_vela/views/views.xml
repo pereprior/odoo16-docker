@@ -1,60 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="escuela_vela.list">
-      <field name="name">escuela_vela list</field>
-      <field name="model">escuela_vela.escuela_vela</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
--->
+    <data>
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="escuela_vela.action_window">
-      <field name="name">escuela_vela window</field>
-      <field name="res_model">escuela_vela.escuela_vela</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
+      <!-- Vistas de Escuela -->
+      <record id="view_escuela_form" model="ir.ui.view">
+          <field name="name">escuela.form</field>
+          <field name="model">escuela_vela.escuela</field>
+          <field name="arch" type="xml">
+              <form>
+                  <group>
+                      <field name="name"/>
+                      <field name="logo" widget="image"/>
+                      <field name="email"/>
+                      <field name="tlf"/>
+                  </group>
+              </form>
+          </field>
+      </record>
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="escuela_vela.action_server">
-      <field name="name">escuela_vela server</field>
-      <field name="model_id" ref="model_escuela_vela_escuela_vela"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
+      <record id="view_escuela_tree" model="ir.ui.view">
+          <field name="name">escuela.tree</field>
+          <field name="model">escuela_vela.escuela</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="name"/>
+                  <field name="email"/>
+                  <field name="tlf"/>
+              </tree>
+          </field>
+      </record>
 
-    <!-- Top menu item -->
-<!--
-    <menuitem name="escuela_vela" id="escuela_vela.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="escuela_vela.menu_1" parent="escuela_vela.menu_root"/>
-    <menuitem name="Menu 2" id="escuela_vela.menu_2" parent="escuela_vela.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="escuela_vela.menu_1_list" parent="escuela_vela.menu_1"
-              action="escuela_vela.action_window"/>
-    <menuitem name="Server to list" id="escuela_vela" parent="escuela_vela.menu_2"
-              action="escuela_vela.action_server"/>
--->
-  </data>
+      <!-- Vistas de Curso -->
+      <record id="view_curso_form" model="ir.ui.view">
+          <field name="name">curso.form</field>
+          <field name="model">escuela_vela.curso</field>
+          <field name="arch" type="xml">
+              <form>
+                  <group>
+                      <field name="name"/>
+                      <field name="duracion_en_dias"/>
+                      <field name="duracion_en_horas"/>
+                      <field name="currency_id"/>
+                      <field name="price"/>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_curso_tree" model="ir.ui.view">
+          <field name="name">curso.tree</field>
+          <field name="model">escuela_vela.curso</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="name"/>
+                  <field name="duracion_en_dias"/>
+                  <field name="duracion_en_horas"/>
+                  <field name="currency_id"/>
+                  <field name="price"/>
+              </tree>
+          </field>
+      </record>
+
+      <!-- Vistas de Monitor -->
+      <record id="view_monitor_form" model="ir.ui.view">
+          <field name="name">monitor.form</field>
+          <field name="model">escuela_vela.monitor</field>
+          <field name="arch" type="xml">
+              <form>
+                  <group>
+                      <field name="name"/>
+                      <field name="identification_code"/>
+                      <field name="email"/>
+                      <field name="tlf"/>
+                      <field name="escuela_id"/>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_monitor_tree" model="ir.ui.view">
+          <field name="name">monitor.tree</field>
+          <field name="model">escuela_vela.monitor</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="name"/>
+                  <field name="identification_code"/>
+                  <field name="email"/>
+                  <field name="tlf"/>
+                  <field name="escuela_id"/>
+              </tree>
+          </field>
+      </record>
+
+      <!-- Vistas de Alumno -->
+      <record id="view_alumno_form" model="ir.ui.view">
+          <field name="name">alumno.form</field>
+          <field name="model">escuela_vela.alumno</field>
+          <field name="arch" type="xml">
+              <form>
+                  <group>
+                      <field name="name"/>
+                      <field name="registration_number"/>
+                      <field name="email"/>
+                      <field name="tlf"/>
+                      <field name="escuela_id"/>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_alumno_tree" model="ir.ui.view">
+          <field name="name">alumno.tree</field>
+          <field name="model">escuela_vela.alumno</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="name"/>
+                  <field name="registration_number"/>
+                  <field name="email"/>
+                  <field name="tlf"/>
+                  <field name="escuela_id"/>
+              </tree>
+          </field>
+      </record>
+
+      <!-- Acciones -->
+      <record id="action_escuela" model="ir.actions.act_window">
+          <field name="name">Escuelas</field>
+          <field name="res_model">escuela_vela.escuela</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="action_curso" model="ir.actions.act_window">
+          <field name="name">Cursos</field>
+          <field name="res_model">escuela_vela.curso</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="action_monitor" model="ir.actions.act_window">
+          <field name="name">Monitores</field>
+          <field name="res_model">escuela_vela.monitor</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="action_alumno" model="ir.actions.act_window">
+          <field name="name">Alumnos</field>
+          <field name="res_model">escuela_vela.alumno</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <!-- Menus -->
+      <menuitem id="menu_escuela" name="Escuela" sequence="1" action="action_escuela" />
+      <menuitem id="menu_curso" name="Curso" parent="menu_escuela" action="action_curso" />
+      <menuitem id="menu_monitor" name="Monitores" parent="menu_escuela" action="action_monitor" />
+      <menuitem id="menu_alumno" name="Alumnos" parent="menu_escuela" action="action_alumno" />
+
+      
+
+    </data>
 </odoo>
