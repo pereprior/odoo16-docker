@@ -11,7 +11,7 @@ class Escuela(models.Model):
     logo = fields.Binary("logo")
     email = fields.Char(string="Email", required=False, help="Introduce la direccion de email")
     tlf = fields.Char(string="Telefono", required=False, help="Introduce el numero de telefono")
-    monitores_ids = fields.One2many('escuela_vela.monitor', 'escuela_id', string='Monitores')
+    cursos = fields.Many2many('escuela_vela.curso', string='Cursos')
 
 
 class Curso(models.Model):
@@ -23,6 +23,7 @@ class Curso(models.Model):
     duracion_en_horas = fields.Float(string='Duración en Horas', compute='_compute_duracion_horas', store=True)
     currency_id = fields.Many2one('res.currency', string='Moneda')
     price = fields.Monetary(currency_field='currency_id')
+    escuelas = fields.Many2many('escuela_vela.escuela', string='Escuelas')
 
     @api.depends('duracion_en_dias')
     def _compute_duracion_horas(self):
@@ -36,7 +37,7 @@ class Monitor(models.Model):
     _description = 'Monitor'
 
     name = fields.Char(string="Nombre", required=True, help="Introduce el nombre del monitor")
-    identification_code = fields.Char(string="Identificación", required=True)
+    id = fields.Char(string="Identificación", required=True)
     email = fields.Char(string="Email", required=False, help="Introduce el email del monitor")
     tlf = fields.Char(string="Telefono", required=False, help="Introduce el numero de telefono")
     escuela_id = fields.Many2one('escuela_vela.escuela', string='Escuela')
@@ -47,7 +48,7 @@ class Alumno(models.Model):
     _description = 'Alumno'
 
     name = fields.Char(string="Nombre", required=True, help="Introduce el nombre del alumno")
-    registration_number = fields.Char(string="Número de Matrícula", required=True)
+    id = fields.Char(string="Número de Matrícula", required=True)
     email = fields.Char(string="Email", required=False, help="Introduce el email del alumno")
     tlf = fields.Char(string="Telefono", required=False, help="Introduce el numero de telefono")
     escuela_id = fields.Many2one('escuela_vela.escuela', string='Escuela')

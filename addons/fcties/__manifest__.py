@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "escuela_vela",
+    'name': "fcties",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -27,8 +27,6 @@
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'reports/informe_alumno.xml',
-        'reports/informe_monitor.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
