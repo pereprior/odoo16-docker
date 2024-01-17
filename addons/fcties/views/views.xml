@@ -1,60 +1,101 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="fcties.list">
-      <field name="name">fcties list</field>
-      <field name="model">fcties.fcties</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
--->
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="fcties.action_window">
-      <field name="name">fcties window</field>
-      <field name="res_model">fcties.fcties</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
+    <!-- Vistas de Alumno -->
+      <record id="view_alumne_form" model="ir.ui.view">
+          <field name="name">alumne.form</field>
+          <field name="model">fcties.alumne</field>
+          <field name="arch" type="xml">
+              <form>
+                  <group>
+                      <field name="name"/>
+                      <field name="surname"/>
+                      <field name="date"/>
+                      <field name="curso"/>
+                      <field name="email"/>
+                      <field name="tlf"/>
+                      <field name="ciclo"/>
+                      <field name="practicas"/>
+                      <field name="nota"/>
+                      <field name="nota_text"/>
+                      <field name="empresa"/>
+                  </group>
+              </form>
+          </field>
+      </record>
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="fcties.action_server">
-      <field name="name">fcties server</field>
-      <field name="model_id" ref="model_fcties_fcties"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
+      <record id="view_alumne_tree" model="ir.ui.view">
+          <field name="name">alumne.tree</field>
+          <field name="model">fcties.alumne</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="name"/>
+                  <field name="surname"/>
+                  <field name="date"/>
+                  <field name="curso"/>
+                  <field name="ciclo"/>
+                  <field name="practicas"/>
+                  <field name="nota"/>
+                  <field name="nota_text"/>
+                  <field name="empresa"/>
 
-    <!-- Top menu item -->
-<!--
-    <menuitem name="fcties" id="fcties.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="fcties.menu_1" parent="fcties.menu_root"/>
-    <menuitem name="Menu 2" id="fcties.menu_2" parent="fcties.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="fcties.menu_1_list" parent="fcties.menu_1"
-              action="fcties.action_window"/>
-    <menuitem name="Server to list" id="fcties" parent="fcties.menu_2"
-              action="fcties.action_server"/>
--->
+                  <search>
+                      <field name="surname" string="Apellidos"/>
+                  </search>
+
+              </tree>
+          </field>
+      </record>
+
+    <!-- Vistas de Empresa -->
+      <record id="view_empresa_form" model="ir.ui.view">
+          <field name="name">empresa.form</field>
+          <field name="model">fcties.empresa</field>
+          <field name="arch" type="xml">
+              <form>
+                  <group>
+                      <field name="name"/>
+                      <field name="persona"/>
+                      <field name="email"/>
+                      <field name="tlf"/>
+                      <field name="direccion"/>
+                      <field name="alumnos"/>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_empresa_tree" model="ir.ui.view">
+          <field name="name">empresa.tree</field>
+          <field name="model">fcties.empresa</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="name"/>
+                  <field name="persona"/>
+                  <field name="email"/>
+                  <field name="tlf"/>
+                  <field name="direccion"/>
+                  <field name="alumnos"/>
+              </tree>
+          </field>
+      </record>
+
+
+    <record id="action_alumne" model="ir.actions.act_window">
+        <field name="name">Alumne</field>
+        <field name="res_model">fcties.alumne</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_empresa" model="ir.actions.act_window">
+        <field name="name">Empresa</field>
+        <field name="res_model">fcties.empresa</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="FCT-IES" id="fcties.menu_root"/>
+    <menuitem id="menu_alumne" name="Alumne" parent="fcties.menu_root" action="action_alumne" />
+    <menuitem id="menu_empresa" name="Empresa" parent="fcties.menu_root" action="action_empresa" />
+
   </data>
 </odoo>
