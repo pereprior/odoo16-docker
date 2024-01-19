@@ -1,101 +1,112 @@
 <odoo>
-<data>
-<!--  Vistas de Alumno  -->
-<record id="view_alumne_form" model="ir.ui.view">
-<field name="name">alumne.form</field>
-<field name="model">fcties.alumne</field>
-<field name="arch" type="xml">
-<form>
-<group>
-<field name="name"/>
-<field name="surname"/>
-<field name="date"/>
-<field name="curso"/>
-<field name="email"/>
-<field name="tlf"/>
-<field name="ciclo"/>
-<field name="practicas"/>
-<field name="nota"/>
-<field name="nota_text"/>
-<field name="empresa"/>
-</group>
-</form>
-</field>
-</record>
-<record id="view_alumne_tree" model="ir.ui.view">
-<field name="name">alumne.tree</field>
-<field name="model">fcties.alumne</field>
-<field name="arch" type="xml">
-<tree>
-<field name="name"/>
-<field name="surname"/>
-<field name="date"/>
-<field name="curso"/>
-<field name="ciclo"/>
-<field name="practicas"/>
-<field name="nota"/>
-<field name="nota_text"/>
-<field name="empresa"/>
-</tree>
-</field>
-</record>
-<record id="view_alumne_search" model="ir.ui.view">
-<field name="name">alumne.search</field>
-<field name="model">fcties.alumne</field>
-<field name="arch" type="xml">
-<search>
-<field name="name"/>
-<field name="surname"/>
-<field name="curso"/>
-<field name="practicas"/>
-<field name="empresa"/>
-<filter string="Nota media mayor o igual que 8" name="filter_nota_media" domain="[('nota', '>=', 8)]"/>
-</search>
-</field>
-</record>
-<!--  Vistas de Empresa  -->
-<record id="view_empresa_form" model="ir.ui.view">
-<field name="name">empresa.form</field>
-<field name="model">fcties.empresa</field>
-<field name="arch" type="xml">
-<form>
-<group>
-<field name="name"/>
-<field name="persona"/>
-<field name="email"/>
-<field name="tlf"/>
-<field name="direccion"/>
-<field name="alumnos"/>
-</group>
-</form>
-</field>
-</record>
-<record id="view_empresa_tree" model="ir.ui.view">
-<field name="name">empresa.tree</field>
-<field name="model">fcties.empresa</field>
-<field name="arch" type="xml">
-<tree>
-<field name="name"/>
-<field name="persona"/>
-<field name="email"/>
-<field name="tlf"/>
-<field name="direccion"/>
-<field name="alumnos"/>
-</tree>
-</field>
-</record>
-<record id="action_alumne" model="ir.actions.act_window">
-<field name="name">Alumne</field>
-<field name="res_model">fcties.alumne</field>
-<field name="view_mode">tree,form</field>
-</record>
-<record id="action_empresa" model="ir.actions.act_window">
-<field name="name">Empresa</field>
-<field name="res_model">fcties.empresa</field>
-<field name="view_mode">tree,form</field>
-</record>
-<menuitem name="FCT-IES" id="fcties.menu_root"/>
-<menuitem id="menu_alumne" name="Alumne" parent="fcties.menu_root" action="action_alumne"/>
-<menuitem id="menu_empresa" name="Empresa" parent="fcties.menu_root" action="action_empresa"/>
-</data>
+  <data>
+
+    <!-- Vistas de Alumno -->
+      <record id="view_alumne_form" model="ir.ui.view">
+          <field name="name">alumne.form</field>
+          <field name="model">fcties.alumne</field>
+          <field name="arch" type="xml">
+              <form>
+                  <group>
+                      <field name="name"/>
+                      <field name="surname"/>
+                      <field name="date"/>
+                      <field name="curso"/>
+                      <field name="email"/>
+                      <field name="tlf"/>
+                      <field name="ciclo"/>
+                      <field name="practicas"/>
+                      <field name="nota"/>
+                      <field name="nota_text"/>
+                      <field name="empresa"/>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_alumne_tree" model="ir.ui.view">
+          <field name="name">alumne.tree</field>
+          <field name="model">fcties.alumne</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="name"/>
+                  <field name="surname"/>
+                  <field name="date"/>
+                  <field name="curso"/>
+                  <field name="ciclo"/>
+                  <field name="practicas"/>
+                  <field name="nota"/>
+                  <field name="nota_text"/>
+                  <field name="empresa"/>
+              </tree>
+          </field>
+      </record>
+
+      <record id="view_alumne_search" model="ir.ui.view">
+            <field name="name">alumne.search</field>
+            <field name="model">fcties.alumne</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="surname"/>
+                    <field name="curso"/>
+                    <field name="practicas"/>
+                    <field name="empresa"/>
+                    <filter string="Nota media mayor o igual que 8" name="filter_nota_media" domain="[('nota', '&gt;=', 8)]"/>
+                </search>
+            </field>
+        </record>
+
+
+    <!-- Vistas de Empresa -->
+      <record id="view_empresa_form" model="ir.ui.view">
+          <field name="name">empresa.form</field>
+          <field name="model">fcties.empresa</field>
+          <field name="arch" type="xml">
+              <form>
+                  <group>
+                      <field name="name"/>
+                      <field name="persona"/>
+                      <field name="email"/>
+                      <field name="tlf"/>
+                      <field name="direccion"/>
+                      <field name="alumnos"/>
+                  </group>
+              </form>
+          </field>
+      </record>
+
+      <record id="view_empresa_tree" model="ir.ui.view">
+          <field name="name">empresa.tree</field>
+          <field name="model">fcties.empresa</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="name"/>
+                  <field name="persona"/>
+                  <field name="email"/>
+                  <field name="tlf"/>
+                  <field name="direccion"/>
+                  <field name="alumnos"/>
+              </tree>
+          </field>
+      </record>
+
+
+    <record id="action_alumne" model="ir.actions.act_window">
+        <field name="name">Alumne</field>
+        <field name="res_model">fcties.alumne</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_empresa" model="ir.actions.act_window">
+        <field name="name">Empresa</field>
+        <field name="res_model">fcties.empresa</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="FCT-IES" id="fcties.menu_root"/>
+    <menuitem id="menu_alumne" name="Alumne" parent="fcties.menu_root" action="action_alumne" />
+    <menuitem id="menu_empresa" name="Empresa" parent="fcties.menu_root" action="action_empresa" />
+
+  </data>
 </odoo>
