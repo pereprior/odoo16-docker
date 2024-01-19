@@ -1,0 +1,56 @@
+<odoo>
+<report id="fcties.informe_empresa" string="Informe de Empresa" model="fcties.empresa" report_type="qweb-pdf" name="fcties.informe_empresa_view" file="fcties.informe_empresa_view"/>
+<template id="informe_empresa_view">
+<t t-call="web.basic_layout">
+<t t-foreach="docs" t-as="empresa">
+<div class="page">
+<h1 t-field="empresa.name"/>
+<div>
+<strong>Persona de contacto:</strong>
+<span t-field="empresa.persona"/>
+</div>
+<div>
+<strong>Email:</strong>
+<span t-field="empresa.email"/>
+</div>
+<div>
+<strong>Teléfono:</strong>
+<span t-field="empresa.tlf"/>
+</div>
+<div>
+<strong>Dirección:</strong>
+<span t-field="empresa.direccion"/>
+</div>
+<div>
+<strong>Alumnos:</strong>
+<table class="table table-condensed">
+<tbody>
+<t t-foreach="empresa.alumnos" t-as="alumnos">
+<tr>
+<td>
+<t t-foreach="alumnos" t-as="alumno">
+<p>
+<span t-esc="alumno.name"/>
+,
+<span t-esc="alumno.surname"/>
+,
+<span t-esc="alumno.email"/>
+,
+<span t-esc="alumno.tlf"/>
+,
+<span t-esc="alumno.ciclo"/>
+,
+<span t-esc="alumno.practicas"/>
+</p>
+</t>
+</td>
+</tr>
+</t>
+</tbody>
+</table>
+</div>
+</div>
+</t>
+</t>
+</template>
+</odoo>
