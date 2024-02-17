@@ -46,7 +46,3 @@ Y reseteamos el contenedor donde esta de odoo y de la dase de datos
 ```bash
 docker restart [nombre contenedor]
 ```
-```bash
-docker stop $(docker ps -a -q)
-```
-
