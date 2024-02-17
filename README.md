@@ -1,4 +1,4 @@
-# odoo16_docker-compose
+# Crear Odoo en Docker Compose
 
 Una vez se tenga un proyecto nuevo utilizaremos el archivo docker-compose.yaml y lo copiamos en el propio. Este contiene dos contenedores, el de odoo y postsgress.
 
@@ -46,53 +46,6 @@ Y reseteamos el contenedor donde esta de odoo y de la dase de datos
 ```bash
 docker restart [nombre contenedor]
 ```
-
-
-
-## Comandos útiles docker
-
-Ver las imagenes de docker instaladas 
-```bash
-docker images
-```
-
-Borrar imagen 
-```bash
-docker rmi [id]
-```
-
-Ver todos los contenedores 
-```bash
-docker container ls
-```
-
-Borrar contenedor 
-```bash
-docker rm [id]
-```
-
-Run contenedor 
-```bash
-docker start [id]
-```
-
-Parar contenedor 
-```bash
-docker stop [id]
-```
-
-
-Restart contenedor 
-```bash
-docker restart [id]
-```
-
-Parar todos contenedor 
-```bash
-docker stop $(docker ps -a -q)
-```
-
-Borrar todos contenedor 
 ```bash
 docker stop $(docker ps -a -q)
 ```
